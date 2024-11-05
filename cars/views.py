@@ -11,7 +11,7 @@ def cars_view(request):
         carro = Car.objects.filter(brand__name = nome_carro)#filtrando por modelo
         context = {"cars_list":carro}
     else:
-        cars_list = Car.objects.all()# Nesse caso não posso colocar o values se não começa a dar erro
+        cars_list = Car.objects.all().order_by("model")# Nesse caso não posso colocar o values se não começa a dar erro,order_by ordena minha consulta pelo campo destacado
         context = {"cars_list":cars_list}
         
     # carro = Car.objects.filter(brand__name = nome_carro)#filtrando por marca

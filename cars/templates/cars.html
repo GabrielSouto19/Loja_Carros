@@ -11,6 +11,7 @@
     <h1>Bem vindo a loja de carros Do Gabriel</h1>
     {% for car in cars_list %}
         <li> {{ car.brand }}   {{ car.model }}  - {{ car.factory_year }} </li>
+        <img src="{{car.photo.url}}" alt="foto-de-carro">
     {%endfor%}
 
 {% endblock %}
