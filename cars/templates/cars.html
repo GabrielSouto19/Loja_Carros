@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de carros</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        img{
+            width: 350px;
+            height: 250px;
+        }
+
+    </style>
 </head>
 {% block content%}
 <body>
+   
+        <h1>Bem vindo a loja de carros Do Gabriel</h1>
 
-    <h1>Bem vindo a loja de carros Do Gabriel</h1>
+        <form action="{% url 'cars_list'%}" method="GET">
+            <input type="text" name="search" placeholder="Buscar Carro...">
+            <button type="submit">Buscar</button>
+
+        </form>
+
     {% for car in cars_list %}
-        <li> {{ car.brand }}   {{ car.model }}  - {{ car.factory_year }} </li>
+    <div class="car-card">
         <img src="{{car.photo.url}}" alt="foto-de-carro">
+        <li> {{ car.brand }}   {{ car.model }}  - {{ car.factory_year }} </li>
+
+    </div>
     {%endfor%}
 
    

@@ -8,7 +8,7 @@ def cars_view(request):
     nome_carro = request.GET.get("search")
     if nome_carro:
         print(nome_carro)
-        carro = Car.objects.filter(brand__name = nome_carro)#filtrando por modelo
+        carro = Car.objects.filter(model__icontains = nome_carro)#filtrando por modelo
         context = {"cars_list":carro}
     else:
         cars_list = Car.objects.all().order_by("model")# Nesse caso não posso colocar o values se não começa a dar erro,order_by ordena minha consulta pelo campo destacado
