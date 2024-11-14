@@ -17,9 +17,14 @@
             padding: 10px;
             font-size: 1.6rem;
             color: #f7f7f7;
+        }
+        ul{
+            display: flex;
+            gap: 12px;
+        }
+        .links-cabecalho:hover{
+            background-color: #0c262e4a;
 
-            
-            
         }
         footer{
             background-color: #0096c7;
@@ -106,7 +111,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{% url 'cars_list'%}">Carros</a></li>
+                <li><a href="{% url 'cars_list'%}" class="links-cabecalho">Carros</a></li>
+                <li><a href="{% url 'new_car'%}">Cadastrar Carro</a></li>
                 <li></li>
                 <li></li>
             </ul>

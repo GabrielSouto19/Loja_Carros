@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from cars.models import Car
-from cars.forms import CarForm
+from cars.forms import CarForm,CarModelForm
 
 def cars_view(request):
     nome_carro = request.GET.get("search")
@@ -27,9 +27,9 @@ def cars_view(request):
 def new_car_view(request):#
     #uma vez que eu estou tentando entrar nesta pagina de cadastro , eu quero ver os campos que eu quero digitrar pra poder cadastrar os carros
     if request.method == "GET":
-        new_car_form = CarForm()    
+        new_car_form = CarModelForm()    
     else:
-        new_car_form = CarForm(request.POST,request.FILES)    
+        new_car_form = CarModelForm(request.POST,request.FILES)    
         print(new_car_form.data)
         if new_car_form.is_valid():#validando o meu formulario
             new_car_form.save()
