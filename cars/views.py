@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from cars.models import Car
-from cars.forms import CarForm,CarModelForm
+from cars.forms import CarModelForm
 
 def cars_view(request):
     nome_carro = request.GET.get("search")
@@ -30,7 +30,7 @@ def new_car_view(request):#
         new_car_form = CarModelForm()    
     else:
         new_car_form = CarModelForm(request.POST,request.FILES)    
-        print(new_car_form.data)
+
         if new_car_form.is_valid():#validando o meu formulario
             new_car_form.save()
             return redirect('cars_list')
