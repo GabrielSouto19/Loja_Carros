@@ -7,24 +7,28 @@
     <title>Loja de carros</title>
 
 </head>
-{% block content%}
 <body>
-   
-        <h1>Bem vindo a loja de carros Do Gabriel</h1>
+    
+    {% block content%}
+    <h1>Bem vindo a loja de carros Do Gabriel</h1>
 
-        <form action="{% url 'cars_list'%}" method="GET" class="formulario-buscar">
+        <form action="{% url 'cars_list'%}" method="GET" >
             <input type="text" name="search" placeholder="Buscar Carro..." class="input-search">
-            <button type="submit" class="btn-buscar">Buscar</button>
+            <button type="submit" class="btn">Buscar</button>
 
         </form>
 
     <div class="container">
     {% for car in cars_list %}
-        <div class="car-card">
-            <img src="{{car.photo.url}}" alt="foto-de-carro" class="car-card-image">
-            <li> {{ car.brand }}   {{ car.model }}  - {{ car.factory_year }} </li>
-    
-        </div>
+        <a href="">
+            <div class="car-card">
+                <img src="{{car.photo.url}}" alt="foto-de-carro" class="car-card-image">
+                <li> {{ car.brand }}   {{ car.model }}  - {{ car.factory_year }} </li>
+        
+            </div>
+            
+
+        </a>
 
 
         {%endfor%}

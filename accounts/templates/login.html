@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="{% url 'login'%}" method="post">
-    <table>
-        {% csrf_token %}
-        {{ login_form.as_table }}
-    </table>
-    <button>
-        Logar
-    </button>
+<form action="{% url 'login'%}" method="post" class="formulario-login">
+    <h1>Login</h1>
+    <div>       
+        <table>
+            {% csrf_token %}    
+            {{ login_form.as_table }}
+        </table>
+        <button  class="btn" id="btn-login">Login</button>
+    </div>
+    <p>Não tem uma conta?<a href="{% url 'register' %}">registrar</a></p>
 
 
 </form>

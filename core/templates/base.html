@@ -7,7 +7,7 @@
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #e2d5d5;
             color: #333;
             margin: 0px;
             padding: 0px;
@@ -20,20 +20,20 @@
         }
         ul{
             display: flex;
-            gap: 12px;
+            
+            gap: 40px;
         }
         .links-cabecalho:hover{
             background-color: #0c262e4a;
 
         }
         footer{
-            background-color: #0096c7;
+            background-color: #79acbd;
             padding: 30px;
             text-align: center;
-            color: #f7f7f7;
+            color: black;
+            font-weight: bold;
             position: sticky;
-            
-            
 
         }
         ul li a{
@@ -85,7 +85,7 @@
             border-radius: 8px;
             
         }
-        .btn-buscar{
+        .btn{
             height: 2rem;
             width: 5rem;
             text-align: center;
@@ -94,25 +94,77 @@
             border-radius: 8px;
             border: none;
         }
-        .btn-buscar:hover{
+        .btn:hover{
             background-color: #176781;
             transition: ease .5s;
         }
-        .formulario-buscar{
+        #btn-login{
             text-align: center;
+        }
+       
+        .formulario-login{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 350px;
+            height: 400px;
+            background-color: rgb(66, 103, 120);
+            color: white;
+            border-radius: 12px;
+            margin: 5rem;
+            text-align: center;
+        }
+        
+        .formulario-cadastrar{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 350px;
+            height: 400px;
+            background-color: rgb(66, 103, 120);
+            color: white;
+            border-radius: 12px;
+            margin: 5rem;
+            text-align: center;
+        }
+
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         h1{
             text-align: center;
         }
-      
+        .form-group input{
+            border-radius: 6px;
+            height: 1.5rem;
+            border: 0.5px solid black;
+        }
+        
+        .form-group li{
+            color: rgb(209, 233, 28);
+        }
+
         </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="{% url 'cars_list'%}" class="links-cabecalho">Carros</a></li>
+                {% if user.is_authenticated %}
+                <li class="links-cabecalho">Ola {{user.username}}</li>
                 <li><a href="{% url 'new_car'%}">Cadastrar Carro</a></li>
+                <li><a href="{% url 'logout'%}">Sair</a></li>
+
+                {% endif %}
+                
+                <li><a href="{% url 'cars_list'%}" class="links-cabecalho">Carros</a></li>
+                <li><a href="{% url 'login'%}">Login</a></li>
+                <li><a href="{% url 'register'%}">Cadastrar</a></li>
                 <li></li>
                 <li></li>
             </ul>
