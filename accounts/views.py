@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 
 def register_view(request):
     if request.method == "GET":
@@ -11,3 +10,9 @@ def register_view(request):
             user_form.save()
             return redirect("cars_list")
     return render(request,"register.html",{"user_form":user_form})
+
+
+def login_view(request):
+    login_form = AuthenticationForm()
+    return render(request,"login.html",{"login_form":login_form})
+    
